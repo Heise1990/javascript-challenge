@@ -18,26 +18,25 @@ var button = d3.select("#filter-btn");
 var dateTime = d3.select("#datetime");
 
 // Create event handlers 
-button.on("click", () => {
-// form.on("submit",runEnter);
+button.on("click", runEnter);
+dateTime.on("submit",runEnter);
 
-// // // Complete the event handler function for the form 
-// function runEnter() {
+function runEnter() {
 
 //   // Prevent the page from refreshing
   d3.event.preventDefault();
   
 //   // Select the input element and get the raw HTML node
-  // var inputElement = dateTime;
+  var inputElement = d3.select("#datetime");
 
 //   // Get the value property of the input element
-  var inputValue = inputElement.property("value");
+  var inputValue = inputElement.property("value")
 
-  // console.log(inputValue);
+    console.log(inputValue);
+    console.log(tableData);
 
   var filteredData = tableData.filter(tableData => tableData.dateTime === inputValue);
 
-  let response = {filteredData}
-})
+  console.log("filteredData")
 
-  // console.log(filteredData);
+};
